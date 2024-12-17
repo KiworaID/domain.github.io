@@ -1,0 +1,347 @@
+:root {
+    --bg-gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #363636 100%);
+    --bg-gradient-light: linear-gradient(135deg, #f0f2f5 0%, #e2e8f0 100%);
+    --card-bg-dark: #2a2a2a;
+    --card-bg-light: #ffffff;
+    --text-dark: #ffffff;
+    --text-light: #1a1a1a;
+    --accent-color: #00ff9d;
+    --accent-hover: #00cc7d;
+    --error-color: #ef4444;
+    --success-color: #22c55e;
+    --warning-color: #f59e0b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-gradient-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+body.light-theme {
+    background: var(--bg-gradient-light);
+    color: var(--text-light);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--accent-hover);
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(30, 30, 30, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.light-theme .container {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+input {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #444;
+    border-radius: 10px;
+    font-size: 16px;
+    background: var(--card-bg-dark);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.light-theme input {
+    background: var(--card-bg-light);
+    color: var(--text-light);
+    border-color: #ddd;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+}
+
+button {
+    padding: 15px 30px;
+    background: var(--accent-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+}
+
+.results {
+    display: grid;
+    gap: 15px;
+}
+
+.domain-card {
+    background: var(--card-bg-dark);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.light-theme .domain-card {
+    background: var(--card-bg-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.domain-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.domain-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.domain-name {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.domain-info {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.light-theme .domain-info {
+    color: #666;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.visit-btn, .info-btn, .tech-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.visit-btn {
+    background: var(--accent-color);
+    color: var(--text-light);
+}
+
+.info-btn {
+    background: #444;
+    color: var(--text-dark);
+}
+
+.tech-btn {
+    background: #666;
+    color: var(--text-dark);
+}
+
+.light-theme .info-btn,
+.light-theme .tech-btn {
+    background: #eee;
+    color: var(--text-light);
+}
+
+.visit-btn:hover, .info-btn:hover, .tech-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(110%);
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status-active {
+    background: var(--success-color);
+    color: white;
+}
+
+.status-available {
+    background: var(--accent-color);
+    color: var(--text-light);
+}
+
+.status-registered {
+    background: var(--warning-color);
+    color: white;
+}
+
+.status-error {
+    background: var(--error-color);
+    color: white;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    display: none;
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: var(--card-bg-dark);
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.light-theme .progress-bar {
+    background: #eee;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: var(--text-dark);
+}
+
+.light-theme .progress-text {
+    color: var(--text-light);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--card-bg-dark);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.light-theme .modal-content {
+    background: var(--card-bg-light);
+}
+
+.tech-info {
+    margin-top: 20px;
+}
+
+.tech-info h3 {
+    margin: 15px 0 10px;
+    color: var(--accent-color);
+}
+
+.tech-info ul {
+    list-style: none;
+    margin-left: 20px;
+}
+
+.tech-info li {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+@keyframes dots {
+    0%, 20% { content: "."; }
+    40% { content: ".."; }
+    60%, 100% { content: "..."; }
+}
+
+.error {
+    color: var(--error-color);
+    text-align: center;
+    padding: 10px;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 5px;
+} 

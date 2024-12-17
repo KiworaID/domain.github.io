@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Checker Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <div class="container">
+        <h1><i class="fas fa-globe"></i> Domain Checker Pro</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Masukkan nama domain (contoh: youtube)">
+            <button onclick="searchDomains()">
+                <i class="fas fa-search"></i> Cari
+            </button>
+        </div>
+        <div class="loading" id="loading">
+            <i class="fas fa-circle-notch fa-spin"></i> Mencari domain...
+        </div>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
